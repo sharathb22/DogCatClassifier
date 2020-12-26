@@ -1,0 +1,21 @@
+## Step we are following to deploy on GCP
+1) Your python file should be main.py
+2) flask object name should be application
+3) Create a new file and name it app.yaml
+4) in app.yaml add the below content
+        runtime: python
+        env: flex
+        entrypoint: gunicorn -b :$PORT main:application
+
+        runtime_config:
+          python_version: 3
+
+
+        manual_scaling:
+          instances: 1
+        resources:
+          cpu: 1
+          memory_gb: 0.5
+          disk_size_gb: 10
+5) Initialize local git using git below command - git init.
+6)
